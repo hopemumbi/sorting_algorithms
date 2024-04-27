@@ -29,11 +29,14 @@ void bubble_sort(int *array, size_t size)
 		return;
 
 	/* Pass through the array (size - 1) times */
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; i <= size - 1; i++)
 	{
 		/* Initialize swapped to false at the start of each pass */
 		swapped = false;
-		/* Iterate through the array upto size - i - 1 */
+		/**
+		 * Iterate through the array upto size - i - 1 
+		 * excluding the last i elements which are already sorted
+		 */
 		for (j = 0; j < size - i - 1; j++)
 		{
 			/* If the current element is greater than the next */
