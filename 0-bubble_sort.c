@@ -22,38 +22,34 @@ void swap(int *x, int *y)
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j;
+	size_t i;
+	size_t length = size; /*Store the value of size*/
 	bool swapped;
-
+	/*Check if array is NULL or its size less than 2*/
 	if (array == NULL || size < 2)
 		return;
 
-	/* Pass through the array (size - 1) times */
-	for (i = 0; i <= size - 1; i++)
+	/*Initialize swapped to true*/
+	swapped = true;
+
+	/* Keep passing through the array as long swapped is true */
+	while (swapped == true)
 	{
-		/* Initialize swapped to false at the start of each pass */
+		/*Initialize swapped to false to indicate no swap yet*/
 		swapped = false;
-		/**
-		 * Iterate through the array upto size - i - 1 
-		 * excluding the last i elements which are already sorted
-		 */
-		for (j = 0; j < size - i - 1; j++)
+		/*Iterate through the array upto length - 1 */
+		for (i = 0; i < length - 1; i++)
 		{
 			/* If the current element is greater than the next */
-			if (array[j] > array[j + 1])
+			if (array[i] > array[i + 1])
 			{
-				/*swap the elements; set swapped to true; print the array*/
-				swap(&array[j], &array[j + 1]);
+				/*swap the elements; print the array; set swapped to true*/
+				swap(&array[i], &array[i + 1]);
+				print_array(array, size); /*Use size instead of length*/
 				swapped = true;
-				print_array(array, size);
 			}
 		}
-		/*If swapped is false at the end of the inner loop*/
-		if (swapped == false)
-		{
-			/*Print the array; Break out of the loop*/
-			print_array(array, size);
-			break;
-		}
+		/*Decrement to skip last sorted element*/
+		length--;
 	}
 }
