@@ -19,6 +19,8 @@ void swap(int *x, int *y)
  *
  * @array: Pointer to the array to be sorted.
  * @size: Number of elements in the array.
+ *
+ * print_array - Print array after each pass
  */
 void bubble_sort(int *array, size_t size)
 {
@@ -27,7 +29,7 @@ void bubble_sort(int *array, size_t size)
 	bool swapped;
 	/*Check if array is NULL or its size less than 2*/
 	if (array == NULL || size < 2)
-		return;
+		return;/*Exit the function*/
 
 	/*Initialize swapped to true*/
 	swapped = true;
